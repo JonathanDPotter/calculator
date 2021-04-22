@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  top: 0;
+}
+
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
+@font-face {
+  font-family: 'Digital';
+  src: url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot');
+  src: url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix')
+      format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2')
+      format('woff2'),
+    url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff')
+      format('woff'),
+    url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf')
+      format('truetype'),
+    url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7')
+      format('svg');
+}
+
+#full-page {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: rgb(0, 126, 102);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#calc-body {
+  height: 500px;
+  width: 300px;
+  background-color: #242827;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+#screen {
+  height: 80px;
+  line-height: 80px;
+  background-color: #A3BAAA;
+  border: 5px solid #242827;
+  border-radius: 20px;
+  font-family: 'Digital';
+  font-size: 70px;
+  text-align: right;
+  padding: 3px;
+}
+
+#buttons {
+  width: 100%;
+  height: 420px;
+  display: grid;
+  grid-template-areas:
+    "clear clear divide multiply"
+    "seven eight nine subtract"
+    "four five six add"
+    "one two three equals"
+    "zero zero decimal equals"
+}
+
+.btn {
+  background-color: #BBBAC2;
+  border-radius: 20px;
+  border: 5px solid #242827;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  font-family: monospace;
+  outline: none;
+}
+
+#btn1 {
+  grid-area: clear;
+}
+#btn2 {
+  grid-area: divide;
+}
+#btn3 {
+  grid-area: multiply;
+}
+#btn4 {
+  grid-area: seven;
+}
+#btn5 {
+  grid-area: eight;
+}
+#btn6 {
+  grid-area: nine;
+}
+#btn7 {
+  grid-area: subtract;
+}
+#btn8 {
+  grid-area: four;
+}
+#btn9 {
+  grid-area: five;
+}
+#btn10 {
+  grid-area: six;
+}
+#btn11 {
+  grid-area: add;
+}
+#btn12 {
+  grid-area: one;
+}
+#btn13 {
+  grid-area: two;
+}
+#btn14 {
+  grid-area: three;
+}
+#btn15 {
+  grid-area: equals;
+}
+#btn16 {
+  grid-area: zero;
+}
+#btn17 {
+  grid-area: decimal;
+}
