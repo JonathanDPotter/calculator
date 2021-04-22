@@ -6,9 +6,12 @@ let current = "",
   entries = [];
 
 function handleEquals(btn) {
+  if (entries.length < 2) {
+    return;
+  }
+  entries.push(current);
   console.table(entries);
   let solution;
-  entries.push(current);
   console.log(entries[1]);
   if (entries[1] == "+") {
     solution = parseFloat(entries[0]) + parseFloat(entries[2]);
@@ -19,9 +22,9 @@ function handleEquals(btn) {
   } else if (entries[1] == "/") {
     solution = parseFloat(entries[0]) / parseFloat(entries[2]);
   }
+  handleClear();
   last = btn;
   solution = Number(solution.toFixed(5));
-  entries = [solution];
   current = solution;
   if (solution.toString().length > 14) {
     handleLong();
@@ -73,9 +76,12 @@ function handleLong() {
 
 function handleDec(dec) {
   if (parseFloat(current) % 1 == 0 && last.value != ".") {
+    console.log(parseFloat(current));
     current = current + ".";
     last = dec;
   }
+  currentDisplay.textContent = current;
+  entriesDisplay.textContent = entries.join(" ");
 }
 
 function handleNum(num) {
@@ -83,12 +89,12 @@ function handleNum(num) {
   if (current == 0) {
     current = value;
     last = num;
-  } else if (last == "=") {
+  } else if (last.value == "=") {
     current = value;
-    last.name = "num";
+    last = num;
   } else {
     current = current + value;
-    last.name = "num";
+    last = num;
   }
   if (current.length > 14) {
     handleLong();
@@ -98,19 +104,20 @@ function handleNum(num) {
 }
 
 function handleClick(btn) {
-  lastType = btn.name;
-  if (btn.name === "ops") {
+  console.log(btn.dataset.type, btn.value);
+  lastType = btn.dataset.type;
+  if (btn.dataset.type === "ops") {
     handleOps(btn);
-  } else if (btn.name === "num") {
-    handleNum(btn);
-  } else if (btn.name === "clear") {
+  } else if (btn.dataset.type === "clear") {
     handleClear();
-  } else if (btn.name === "equals") {
+  } else if (btn.dataset.type === "equals") {
     handleEquals(btn);
-  } else if (btn.name === "dec") {
+  } else if (btn.dataset.type === "num") {
+    handleNum(btn);
+  } else if (btn.dataset.type === "dec") {
     handleDec(btn);
   } else {
-    console.log(btn.name);
+    console.log(btn.dataset.type);
   }
 }
 
