@@ -41,15 +41,26 @@
 }
 
 #screen {
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
   background-color: #A3BAAA;
   border: 5px solid #242827;
   border-radius: 20px;
   font-family: 'Digital';
-  font-size: 70px;
   text-align: right;
-  padding: 3px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+#entries {
+  line-height: 20px;
+  font-size: 20px;
+  height: 20px;
+}
+#current {
+  line-height: 40px;
+  font-size: 40px;
+  height: 40px;
 }
 
 #buttons {
